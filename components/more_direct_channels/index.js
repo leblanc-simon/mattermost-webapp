@@ -9,9 +9,13 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 import MoreDirectChannels from './more_direct_channels.jsx';
 
 function mapStateToProps(state, ownProps) {
+    const config = state.entities.general.config;
+    const restrictDirectMessage = config.RestrictDirectMessage;
+
     return {
         ...ownProps,
-        currentUserId: getCurrentUserId(state)
+        currentUserId: getCurrentUserId(state),
+        restrictDirectMessage
     };
 }
 

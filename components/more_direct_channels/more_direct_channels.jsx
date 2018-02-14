@@ -27,6 +27,7 @@ export default class MoreDirectChannels extends React.Component {
         currentUserId: PropTypes.string.isRequired,
         startingUsers: PropTypes.arrayOf(PropTypes.object),
         onModalDismissed: PropTypes.func,
+        restrictDirectMessage: PropTypes.string,
         actions: PropTypes.shape({
             getProfiles: PropTypes.func.isRequired,
             getProfilesInTeam: PropTypes.func.isRequired
@@ -47,7 +48,7 @@ export default class MoreDirectChannels extends React.Component {
 
         this.searchTimeoutId = 0;
         this.term = '';
-        this.listType = global.window.mm_config.RestrictDirectMessage;
+        this.listType = this.props.restrictDirectMessage;
 
         const values = [];
 
